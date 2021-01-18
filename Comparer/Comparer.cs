@@ -16,7 +16,7 @@ namespace Modyl_03_try
             try
             {
                 CurrencyHelper ch = new CurrencyHelper();
-                var monoCurrencyExchangeRates = ch.GetCurrencyExchangeRatesFromMono().Result;
+                var monoCurrencyExchangeRates = CurrencyRatesMono.GetCurrencyExchangeRatesFromMono().Result;
                 ch.CompareRates(monoCurrencyExchangeRates, CurrencyConstants.MINFIN_AUCTION_LINK_UAH_TO_USD, ISO4217Enum.USD);
                 ch.CompareRates(monoCurrencyExchangeRates, CurrencyConstants.MINFIN_AUCTION_LINK_UAH_TO_EUR, ISO4217Enum.EUR);
             }

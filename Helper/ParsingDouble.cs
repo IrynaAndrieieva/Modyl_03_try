@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Modyl_03_try
 {
-    public static class ParsingFromMinfin
+    public static class ParsingDouble //in case of different separators for fractional values
     {
         public static double GetDouble(string value)
         {

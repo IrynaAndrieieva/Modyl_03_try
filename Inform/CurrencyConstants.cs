@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Modyl_03_try
 {  
-    public static class CurrencyConstants
+    public static class CurrencyConstants //all our links from which we take information and X-path
     {
         public static string MINFIN_AUCTION_LINK_UAH_TO_USD = "https://minfin.com.ua/currency/auction/usd/buy/kharkov/";
         public static string MINFIN_AUCTION_LINK_UAH_TO_EUR = "https://minfin.com.ua/currency/auction/eur/buy/kharkov/";

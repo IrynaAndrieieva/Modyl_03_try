@@ -15,29 +15,14 @@ namespace Modyl_03_try.Helper
     {
         public void CompareRates(List<MonobankCurrencyInfo> monobankCurrencies, string minfinLink, ISO4217Enum currencyA)
         {
-            string exchangeRateString = GetExchangeRate(minfinLink, CurrencyConstants.MINFIN_AUCTION_XPATH_EXPRESSION);
-            double minfinExchangeRate = ParsingFromMinfin.GetDouble(exchangeRateString);
+            string exchangeRateString = ExchangeRateWeb.GetExchangeRate(minfinLink, CurrencyConstants.MINFIN_AUCTION_XPATH_EXPRESSION);
+            double minfinExchangeRate = ParsingDouble.GetDouble(exchangeRateString);
 
             double monoExchangeRate = GetExchangeRateByISOCodeFromMono(monobankCurrencies, currencyA);
 
             CompareExchangeRates(minfinExchangeRate, monoExchangeRate, currencyA);
         }
-        public string GetExchangeRate(string sourceLink, string xPathString)
-        {
-            var web = new HtmlWeb();
-            var doc = web.Load(sourceLink);
-            HtmlNode node = doc.DocumentNode.SelectSingleNode(xPathString);
-            return node.InnerText;
-        }
         
-        public async Task<List<MonobankCurrencyInfo>> GetCurrencyExchangeRatesFromMono()
-        {
-            using (var httpClient = new HttpClient())
-            {
-                var json = await httpClient.GetStringAsync(CurrencyConstants.MONO_CURRENCIES_LINK);
-                return JsonConvert.DeserializeObject<List<MonobankCurrencyInfo>>(json);
-            }
-        }
         public double GetExchangeRateByISOCodeFromMono(List<MonobankCurrencyInfo> monobankCurrencies, ISO4217Enum currencyA)
         {
             var currencyInfo = monobankCurrencies.First(c => c.currencyCodeA == (int)currencyA);
