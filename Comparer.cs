@@ -12,6 +12,7 @@ namespace Modyl_03_try
     {
         public static void RatesComparer()
         {
+
             try
             {
                 CurrencyHelper ch = new CurrencyHelper();
@@ -19,7 +20,7 @@ namespace Modyl_03_try
                 ch.CompareRates(monoCurrencyExchangeRates, CurrencyConstants.MINFIN_AUCTION_LINK_UAH_TO_USD, ISO4217Enum.USD);
                 ch.CompareRates(monoCurrencyExchangeRates, CurrencyConstants.MINFIN_AUCTION_LINK_UAH_TO_EUR, ISO4217Enum.EUR);
             }
-            catch (Exception ex)
+            catch (Exception ex) // на случай, если все равно несмотря на задержку в стартере выбъет ошибку 429, чтобы программа не вылетала
             {
                 if (ex.InnerException != null && ex.InnerException.Message.Contains("429"))
                 {

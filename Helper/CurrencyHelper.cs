@@ -16,7 +16,7 @@ namespace Modyl_03_try.Helper
         public void CompareRates(List<MonobankCurrencyInfo> monobankCurrencies, string minfinLink, ISO4217Enum currencyA)
         {
             string exchangeRateString = GetExchangeRate(minfinLink, CurrencyConstants.MINFIN_AUCTION_XPATH_EXPRESSION);
-            double minfinExchangeRate = GetDouble(exchangeRateString);
+            double minfinExchangeRate = ParsingFromMinfin.GetDouble(exchangeRateString);
 
             double monoExchangeRate = GetExchangeRateByISOCodeFromMono(monobankCurrencies, currencyA);
 
@@ -29,17 +29,7 @@ namespace Modyl_03_try.Helper
             HtmlNode node = doc.DocumentNode.SelectSingleNode(xPathString);
             return node.InnerText;
         }
-        public double GetDouble(string value)
-        {
-            double result;
-            if (!double.TryParse(value, NumberStyles.Any, CultureInfo.CurrentCulture, out result) &&
-                !double.TryParse(value, NumberStyles.Any, CultureInfo.GetCultureInfo("en-US"), out result) &&
-                !double.TryParse(value, NumberStyles.Any, CultureInfo.InvariantCulture, out result))
-            {
-                result = default;
-            }
-            return result;
-        }
+        
         public async Task<List<MonobankCurrencyInfo>> GetCurrencyExchangeRatesFromMono()
         {
             using (var httpClient = new HttpClient())
@@ -59,15 +49,16 @@ namespace Modyl_03_try.Helper
             Console.WriteLine($"BUYING RATES {ISO4217Enum.UAH} VS {currencyA}");
             Console.WriteLine($"MONO: {monoExchangeRate}");
             Console.WriteLine($"MINFIN: {minfinExchangeRate}");
+
             if (monoExchangeRate < minfinExchangeRate)
             {
                 Console.WriteLine("It's time to rob caravans...");
             }
-            if (monoExchangeRate == minfinExchangeRate)
+            else if (monoExchangeRate == minfinExchangeRate)
             {
                 Console.WriteLine("Time to rob caravans may come soon. Be ready...");
             }
-            if (monoExchangeRate > minfinExchangeRate)
+            else
             {
                 Console.WriteLine("Everething is fine. For now...");
             }

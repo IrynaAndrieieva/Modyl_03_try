@@ -10,13 +10,9 @@ namespace Modyl_03_try
     public static class Starter
     {
         public static void Run()
-        {
-            while (true)
-            {
+        {           
                 Comparer.RatesComparer();
-                System.Threading.Thread.Sleep(60000); // задержка необходима для того, что иначе выбивает 429 ошибку
-            }
-           
+                System.Threading.Thread.Sleep(60000); // задержка необходима для того, что иначе выбивает 429 ошибку - слишком частое обращение к сайту                     
         }
     }
 }
