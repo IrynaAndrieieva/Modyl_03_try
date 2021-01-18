@@ -18,16 +18,11 @@ namespace Modyl_03_try.Helper
             string exchangeRateString = ExchangeRateWeb.GetExchangeRate(minfinLink, CurrencyConstants.MINFIN_AUCTION_XPATH_EXPRESSION);
             double minfinExchangeRate = ParsingDouble.GetDouble(exchangeRateString);
 
-            double monoExchangeRate = GetExchangeRateByISOCodeFromMono(monobankCurrencies, currencyA);
+            double monoExchangeRate = RateByISOCodeMono.GetExchangeRateByISOCodeFromMono(monobankCurrencies, currencyA);
 
             CompareExchangeRates(minfinExchangeRate, monoExchangeRate, currencyA);
         }
         
-        public double GetExchangeRateByISOCodeFromMono(List<MonobankCurrencyInfo> monobankCurrencies, ISO4217Enum currencyA)
-        {
-            var currencyInfo = monobankCurrencies.First(c => c.currencyCodeA == (int)currencyA);
-            return currencyInfo.rateBuy;
-        }
         public void CompareExchangeRates(double monoExchangeRate, double minfinExchangeRate, ISO4217Enum currencyA)
         {
             Console.WriteLine($"{DateTime.Now}");
