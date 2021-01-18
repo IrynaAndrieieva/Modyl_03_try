@@ -10,8 +10,6 @@ namespace Modyl_03_try
     {
         static void Main(string[] args)
         {
-            var unicodeString = char.ConvertFromUtf32(0x1F642);
-            Console.Write(unicodeString);
             Starter.Run();
             Console.ReadLine();
         }      
