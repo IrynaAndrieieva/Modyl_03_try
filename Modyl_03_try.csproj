@@ -43,7 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Comparer\Comparer.cs" />
+    <Compile Include="ComparerRat\ComparerRat.cs" />
     <Compile Include="Helper\CurrencyRatesMono.cs" />
     <Compile Include="Helper\ExchangeRateWeb.cs" />
     <Compile Include="Inform\MonobankCurrencyInfo.cs" />

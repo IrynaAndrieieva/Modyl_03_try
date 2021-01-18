@@ -40,9 +40,10 @@ namespace Modyl_03_try.Helper
             }
             else
             {
-                Console.WriteLine("Everething is fine. For now...");
+                Console.WriteLine("Everething is fine. For now...");       
             }
             Console.WriteLine();
+
         }
     }
 }

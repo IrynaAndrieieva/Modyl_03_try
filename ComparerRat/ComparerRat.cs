@@ -8,11 +8,10 @@ using System.Threading.Tasks;
 
 namespace Modyl_03_try
 {
-    public static class Comparer
+    public static class ComparerRat
     {
         public static void RatesComparer()
         {
-
             try
             {
                 CurrencyHelper ch = new CurrencyHelper();

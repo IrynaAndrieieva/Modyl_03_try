@@ -13,7 +13,7 @@ namespace Modyl_03_try
         {
             while (true)
             {
-                Comparer.RatesComparer();
+                ComparerRat.RatesComparer();
 
                 // задержка необходима для того, что иначе выбивает 429 ошибку - слишком частое обращение к сайту
                 System.Threading.Thread.Sleep(60000);
