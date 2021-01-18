@@ -10,6 +10,8 @@ namespace Modyl_03_try
     {
         static void Main(string[] args)
         {
+            Starter.Run();
+            Console.ReadLine();
         }
     }
 }
