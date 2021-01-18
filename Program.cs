@@ -9,7 +9,7 @@ namespace Modyl_03_try
     class Program
     {
         static void Main(string[] args)
-        {
+        {          
             Starter.Run();
             Console.ReadLine();
         }

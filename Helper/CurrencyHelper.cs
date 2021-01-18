@@ -32,7 +32,7 @@ namespace Modyl_03_try.Helper
 
             if (monoExchangeRate < minfinExchangeRate)
             {
-                Console.WriteLine("It's time to rob caravans...");
+                Console.WriteLine("It's time to rob caravans! ");
             }
             else if (monoExchangeRate == minfinExchangeRate)
             {

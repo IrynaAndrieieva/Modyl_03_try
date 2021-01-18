@@ -44,8 +44,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Comparer\Comparer.cs" />
-    <Compile Include="CurrencyRatesMono.cs" />
-    <Compile Include="ExchangeRateWeb.cs" />
+    <Compile Include="Helper\CurrencyRatesMono.cs" />
+    <Compile Include="Helper\ExchangeRateWeb.cs" />
     <Compile Include="Inform\MonobankCurrencyInfo.cs" />
     <Compile Include="Inform\CurrencyConstants.cs" />
     <Compile Include="Enums\ISO4217Enum.cs" />
@@ -53,7 +53,7 @@
     <Compile Include="Helper\ParsingDouble.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RateByISOCodeMono.cs" />
+    <Compile Include="Helper\RateByISOCodeMono.cs" />
     <Compile Include="Starter.cs" />
   </ItemGroup>
   <ItemGroup>
